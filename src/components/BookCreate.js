@@ -1,9 +1,8 @@
 import React from 'react'
 
-export default function App() {
+export default function BookCreate() {
   return (
     <div>
-        <p > hii am</p>
       
     </div>
   )
