@@ -12,14 +12,15 @@ onDelete(book.id)
     setShowEdit(!showEdit)
 
   }
-  const handleSubmit=()=>{
+  const handleSubmit=(id,newTitle)=>{
 setShowEdit(false)
+onEdit(id,newTitle)
 
 
   }
 let content=<h3>{book.title}</h3>
 if(showEdit){
-  content=<BookEdit onSubmit={handleSubmit} onEdit={onEdit} book={book}/>
+  content=<BookEdit onSubmit={handleSubmit} book={book}/>
 }
 
   
