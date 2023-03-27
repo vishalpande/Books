@@ -1,11 +1,21 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { renderIntoDocument } from "react-dom/test-utils";
 import BookCreate from "./components/BookCreate";
 import BookList from "./components/BookList";
+import axios from "axios";
 
 export default function App() {
   const [books, setBooks] = useState([]);
+  const fetchBooks = async () => {
+    const response = await axios.get("  http://localhost:3001/books");
+    setBooks(response.data);
+  };
+
+  useEffect(()=>{
+
+fetchBooks()
+ },[])
 
   const editBookBYId = (id, newTitle) => {
     const updatedBooks = books.map((book) => {
@@ -25,11 +35,12 @@ export default function App() {
     setBooks(updatedBooks);
   };
 
-  const crateBook = (title) => {
-    const updateBooks = [
-      ...books,
-      { id: Math.round(Math.random() * 9999), title },
-    ];
+  const crateBook = async (title) => {
+    const response = await axios.post("  http://localhost:3001/books", {
+      title,
+    });
+
+    const updateBooks = [...books, response.data];
     setBooks(updateBooks);
   };
 
