@@ -1,10 +1,6 @@
 {
   "books": [
     {
-      "title": "vishal pande",
-      "id": 1
-    },
-    {
       "title": "harry poptter",
       "id": 2
     }
