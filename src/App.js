@@ -17,10 +17,15 @@ export default function App() {
 fetchBooks()
  },[])
 
-  const editBookBYId = (id, newTitle) => {
+  const editBookBYId = async(id, newTitle) => {
+const response=await axios.put(`http://localhost:3001/books/${id}`,{
+title: newTitle  
+})
+
+
     const updatedBooks = books.map((book) => {
       if (book.id === id) {
-        return { ...book, title: newTitle };
+        return { ...book, ...response.data};
       }
       return book;
     });
@@ -28,7 +33,9 @@ fetchBooks()
     setBooks(updatedBooks);
   };
 
-  const deleteBookId = (id) => {
+  const deleteBookId = async (id) => {
+    await axios.delete(`http://localhost:3001/books/${id}`)
+
     const updatedBooks = books.filter((books) => {
       return books.id !== id;
     });
