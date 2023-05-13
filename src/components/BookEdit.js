@@ -10,7 +10,7 @@ setTitle(event.target.value)
 }
 const handleSubmit=(event) => {
     event.preventDefault();
-    // console.log('new titile is ' , title)
+    // console.log('new titile is ' , title) file
     
     onSubmit(book.id,title);
 }
