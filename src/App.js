@@ -28,7 +28,7 @@ export default function App() {
       return book;
     });
 
-    setBooks(updatedBooks);
+    setBooks(updatedBooks); //updated
   };
 
   const deleteBookId = async (id) => {
