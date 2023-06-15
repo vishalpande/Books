@@ -22,5 +22,5 @@ export default function BookCreate({ onCreate }) {
         <button className="button">Submit</button>
       </form>
     </div>
-  );
+  );.
 }
